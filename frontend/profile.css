@@ -1,0 +1,128 @@
+/* STUDIO WORKSPACE IDENTITY STYLES */
+.profile-card { 
+    background-color: white; 
+    border-radius: 16px; 
+    padding: 16px; 
+    border: 1px solid #eef2f6; 
+}
+.profile-main { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+    border-bottom: 1px solid #f1f5f9; 
+    padding-bottom: 15px; 
+    margin-bottom: 15px; 
+}
+.profile-avatar-drawn { 
+    width: 65px; 
+    height: 65px; 
+    background-color: #cbd5e1; 
+    border-radius: 50%; 
+    border: 2px solid #94a3b8; 
+    flex-shrink: 0; 
+}
+.profile-details { 
+    flex: 1; 
+}
+.profile-username-label { 
+    font-size: 13px; 
+    color: #3b82f6; 
+    font-weight: 600; 
+    margin: 3px 0; 
+}
+.profile-location-text { 
+    font-size: 12px; 
+    color: #64748b; 
+    font-weight: bold; 
+    margin: 0 0 8px 0; 
+}
+.social-links-row { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    font-size: 12px; 
+    font-weight: bold; 
+}
+.social-links-row a { 
+    color: #1e293b; 
+    text-decoration: none; 
+}
+.profile-url-link { 
+    color: #3b82f6 !important; 
+}
+
+/* DEEP MARKET LOGICAL FORUM CREATION INPUT FIELDS */
+.post-form-box { 
+    padding-top: 5px; 
+}
+.form-title { 
+    font-size: 16px; 
+    font-weight: 800; 
+    margin-bottom: 12px; 
+    color: #1e293b; 
+}
+.form-group { 
+    margin-bottom: 12px; 
+}
+label { 
+    display: block; 
+    font-size: 12px; 
+    margin-bottom: 4px; 
+    font-weight: bold; 
+    color: #475569; 
+}
+input, select, textarea { 
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 6px; 
+    box-sizing: border-box; 
+    font-size: 14px; 
+}
+textarea { 
+    height: 80px; 
+    resize: none; 
+    font-family: inherit; 
+}
+textarea:focus, input:focus { 
+    outline: none; 
+    border-color: #000000; 
+}
+.input-row { 
+    display: flex; 
+    gap: 8px; 
+    width: 100%; 
+}
+.input-row input { 
+    flex: 2; 
+}
+.input-row select { 
+    flex: 1; 
+    font-weight: bold; 
+    background-color: white; 
+    cursor: pointer; 
+}
+.btn-media-trigger { 
+    flex: 1; 
+    background-color: #f1f5f9; 
+    color: #334155; 
+    border: 1px solid #cbd5e1; 
+    padding: 10px; 
+    border-radius: 6px; 
+    font-size: 12px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+.market-btn { 
+    background-color: #000000; 
+    color: white; 
+    font-weight: bold; 
+    padding: 12px; 
+    border: none; 
+    border-radius: 6px; 
+    width: 100%; 
+    margin-top: 10px; 
+    cursor: pointer; 
+    font-size: 15px; 
+}
+

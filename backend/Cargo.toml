@@ -1,0 +1,16 @@
+[package]
+name = "rock_mkt_backend"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+# The fast asynchronous runtime framework execution hub
+tokio = { version = "1.0", features = ["full"] }
+
+# Premium corporate web routing API manager framework
+axum = "0.7"
+
+# Ultra-high speed data serialization translation layers
+serde = { version = "1.0", features = ["derive"] }
+tower-http = { version = "0.6.11", features = ["fs"] }
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Mkt - NOTIFICATIONS</title>
+    <link rel="stylesheet" href="base.css"><link rel="stylesheet" href="feed.css"><link rel="stylesheet" href="lists.css"><link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <!-- Shared Fixed Top Header Panel -->
+    <div class="app-header">
+        <div class="header-top-row">
+            <div class="header-left-group">
+                <button class="back-btn-native" onclick="location.href='index.html'">
+                    <span class="arrow-left-line"></span>
+                </button>
+                <span id="headerTitle">Market Alerts Hub</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NOTIFICATION ALERT LAYOUT BLOCKS PANEL -->
+    <div class="screen-content-area">
+        <!-- Capitalized bold page heading component marker -->
+        <h1 class="page-bold-title">NOTIFICATIONS</h1>
+
+        <div class="item-list-container">
+            <div class="list-row-item unread-notification" onclick="alert('Opening full notification details popup window view...')">
+                <div class="item-info-meta">
+                    <div class="item-main-name">New Product Review Dropped</div>
+                    <div class="item-sub-text">Chinedu left a 5-star review: Fast deal, fresh tomatoes!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM BOTTOM NAVIGATION TAB DOCK BAR -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="location.href='index.html'">
+            <div class="icon-container"><div class="drawn-icon-home"></div></div>
+            <div class="nav-text">Home</div>
+        </div>
+        <div class="nav-item" onclick="location.href='friends.html'">
+            <div class="icon-container"><div class="drawn-icon-friend"></div></div>
+            <div class="nav-text">Friends</div>
+        </div>
+        <div class="nav-item" onclick="location.href='messages.html'">
+            <div class="icon-container"><div class="drawn-icon-messages"></div></div>
+            <div class="nav-text">Messages</div>
+        </div>
+        <div class="nav-item active-nav" onclick="location.href='alerts.html'">
+            <div class="icon-container"><div class="drawn-icon-notifications"></div></div>
+            <div class="nav-text">Alerts</div>
+        </div>
+        <div class="nav-item" onclick="location.href='profile.html'">
+            <div class="icon-container"><div class="drawn-icon-profile"></div></div>
+            <div class="nav-text">Profile</div>
+        </div>
+    </div>
+</body>
+</html>
+

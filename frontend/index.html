@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Mkt - HOME</title>
+    <link rel="stylesheet" href="base.css"><link rel="stylesheet" href="feed.css"><link rel="stylesheet" href="lists.css"><link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <!-- Shared Fixed Top Header -->
+    <div class="app-header">
+        <div class="header-top-row">
+            <div class="header-left-group">
+                <span id="headerTitle">Rock Mkt</span>
+            </div>
+            <button class="menu-trigger-btn" onclick="toggleSidebar(true)">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </div>
+        <div class="tagline">Strictly Business • No Dancing</div>
+        <div class="search-container">
+            <div class="brand-token-r">R</div>
+            <input type="text" class="search-input" placeholder="Search tomato, phones, land...">
+        </div>
+    </div>
+
+    <!-- SIDEBAR DRAWER OVERLAY WRAPPER -->
+    <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar(false)"></div>
+    <div id="sidebarMenu" class="sidebar-drawer">
+        <div class="sidebar-header">
+            <h3>Rock Mkt Hub</h3>
+            <button class="close-sidebar-btn" onclick="toggleSidebar(false)">&times;</button>
+        </div>
+        <div class="sidebar-links">
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-badge"></div></div><span>Verification Badges</span></a>
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-boost"></div></div><span>Boost My Listings</span></a>
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-ledger"></div></div><span>My Deals Ledger</span></a>
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-saves"></div></div><span>Saved Listings</span></a>
+            <hr class="sidebar-divider">
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-settings"></div></div><span>Settings</span></a>
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-report"></div></div><span>Report App Issues</span></a>
+            <a href="#" class="sidebar-item"><div class="sb-icon-box"><div class="drawn-sb-pending"></div></div><span>Pending Reports</span></a>
+            <hr class="sidebar-divider">
+            <a href="gate.html" class="sidebar-item logout-link"><div class="sb-icon-box"><div class="drawn-sb-logout"></div></div><span>Log Out</span></a>
+        </div>
+    </div>
+
+    <div class="screen-content-area">
+        <!-- Capitalized bold page name component marker -->
+        <h1 class="page-bold-title">HOME</h1>
+
+        <!-- Post Card 1 -->
+        <div class="post-card">
+            
+                
+                    <h3 class="store-title">Jumia Official Store</h3>
+                    <div class="top-action-row">
+                        <button class="btn-top-join" id="joinBtn1" onclick="handleJoin(1)">Join</button>
+                        <button class="btn-top-msg" onclick="location.href='messages.html'">Message</button>
+                    </div>
+                </div>
+                <span class="boost-tag">Sponsored Boost</span>
+            </div>
+            <p class="post-text">Get the latest premium sneakers delivered instantly with zero market transaction fees!</p>
+            <div class="media-showcase">[ Premium Sneakers Video Showcase ]</div>
+            <div class="price-tag">N25,000</div>
+            
+            <div class="card-bottom-actions">
+                <button class="btn-bottom-review" style="margin-bottom: 8px;">Check Review</button>
+                <!-- NEW PRO FEATURE: Pro Share Link feature helper element -->
+                <button class="btn-share-link" onclick="alert('Store URL link copied! Blast it to your WhatsApp Status.')">🔗 Share Store Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NATIVE FOOTER NAVIGATION DOCK PANEL -->
+    <div class="bottom-nav">
+        <div class="nav-item active-nav" onclick="location.href='index.html'">
+            <div class="icon-container"><div class="drawn-icon-home"></div></div>
+            <div class="nav-text">Home</div>
+        </div>
+        <div class="nav-item" onclick="location.href='friends.html'">
+            <div class="icon-container"><div class="drawn-icon-friend"></div></div>
+            <div class="nav-text">Friends</div>
+        </div>
+        <div class="nav-item" onclick="location.href='messages.html'">
+            <div class="icon-container"><div class="drawn-icon-messages"></div></div>
+            <div class="nav-text">Messages</div>
+        </div>
+        <div class="nav-item" onclick="location.href='alerts.html'">
+            <div class="icon-container"><div class="drawn-icon-notifications"></div></div>
+            <div class="nav-text">Alerts</div>
+        </div>
+        <div class="nav-item" onclick="location.href='profile.html'">
+            <div class="icon-container"><div class="drawn-icon-profile"></div></div>
+            <div class="nav-text">Profile</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar(open) {
+            const sidebar = document.getElementById('sidebarMenu');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (open) { overlay.style.display = "block"; setTimeout(() => { overlay.style.opacity = "1"; sidebar.style.right = "0px"; }, 10); } 
+            else { sidebar.style.right = "-280px"; overlay.style.opacity = "0"; setTimeout(() => { overlay.style.display = "none"; }, 300); }
+        }
+        function handleJoin(id) {
+            const btn = document.getElementById(`joinBtn${id}`);
+            btn.innerText = "Joined"; btn.classList.add('joined-state');
+        }
+    </script>
+</body>
+</html>
+

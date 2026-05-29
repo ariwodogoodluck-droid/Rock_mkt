@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Mkt - PROFILE</title>
+    <link rel="stylesheet" href="base.css"><link rel="stylesheet" href="feed.css"><link rel="stylesheet" href="lists.css"><link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <!-- Shared Top Fixed Header Navigation Panel -->
+    <div class="app-header">
+        <div class="header-top-row">
+            <div class="header-left-group">
+                <button class="back-btn-native" onclick="location.href='index.html'">
+                    <span class="arrow-left-line"></span>
+                </button>
+                <span id="headerTitle">My Studio Workspace</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PROFILE WORKSPACE WRAPPER CONTEXT -->
+    <div class="screen-content-area">
+        <!-- Capitalized bold page heading component marker -->
+        <h1 class="page-bold-title">PROFILE</h1>
+
+        <div class="profile-card">
+            <div class="profile-main">
+                <div class="profile-avatar-drawn"></div>
+                <div class="profile-details">
+                    <h2 class="user-name">Chidi Ventures</h2>
+                    <p class="profile-username-label">@chidi_ventures</p>
+                    <p class="profile-location-text">📍 Lagos, Nigeria</p>
+                    <div class="social-links-row">
+                        <a href="#" onclick="alert('Opening Facebook verification trace Link...')">[Facebook]</a>
+                        <a href="#" onclick="alert('Opening Instagram connection Link...')">[Instagram]</a>
+                        <a href="#" class="profile-url-link">rockmkt.app/chidi_ventures</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DETAILED ADVANCED ATTRIBUTES TEXT FORUM EDITOR BOX -->
+            <div class="post-form-box">
+                <div class="form-title">Create Market Listing</div>
+                
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="itemName" placeholder="e.g. Fresh Tomatoes">
+                </div>
+
+                <div class="form-group">
+                    <label>Description / Write Post</label>
+                    <textarea id="itemDesc" placeholder="Write a text post, or describe your product variables..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Price & Currency Variant</label>
+                    <div class="input-row">
+                        <input type="number" id="itemPrice" placeholder="Price value">
+                        <select id="itemCurrency">
+                            <option value="NGN">Naira (₦)</option>
+                            <option value="USD">Dollar ($)</option>
+                            <option value="GHS">Cedis (₵)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Media attachment</label>
+                    <div class="input-row">
+                        <button class="btn-media-trigger" onclick="alert('Camera activated to record video showcase')">🎥 Add Video</button>
+                        <button class="btn-media-trigger" onclick="alert('Photo gallery container loaded')">🖼️ Add Image</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>GPS Verification (Auto-Locking Location)</label>
+                    <input type="text" id="itemLocation" placeholder="Coordinates locked via active permissions" disabled>
+                </div>
+
+                <button class="market-btn" onclick="getLiveLocation()">Post to Public</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM BOTTOM NAVIGATION TAB DOCK BAR -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="location.href='index.html'">
+            <div class="icon-container"><div class="drawn-icon-home"></div></div>
+            <div class="nav-text">Home</div>
+        </div>
+        <div class="nav-item" onclick="location.href='friends.html'">
+            <div class="icon-container"><div class="drawn-icon-friend"></div></div>
+            <div class="nav-text">Friends</div>
+        </div>
+        <div class="nav-item" onclick="location.href='messages.html'">
+            <div class="icon-container"><div class="drawn-icon-messages"></div></div>
+            <div class="nav-text">Messages</div>
+        </div>
+        <div class="nav-item" onclick="location.href='alerts.html'">
+            <div class="icon-container"><div class="drawn-icon-notifications"></div></div>
+            <div class="nav-text">Alerts</div>
+        </div>
+        <div class="nav-item active-nav" onclick="location.href='profile.html'">
+            <div class="icon-container"><div class="drawn-icon-profile"></div></div>
+            <div class="nav-text">Profile</div>
+        </div>
+    </div>
+
+    <script>
+        function getLiveLocation() {
+            const locationInput = document.getElementById('itemLocation');
+            const nameInput = document.getElementById('itemName').value;
+            if (!nameInput) { alert("Error: Please provide a Product Name configuration first!"); return; }
+            if (!navigator.geolocation) { alert("Error: Hardware device does not support geolocation metrics."); return; }
+            locationInput.placeholder = "Locating verified system coordinates...";
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude; const lng = position.coords.longitude;
+                    locationInput.value = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
+                    alert(`Success! GPS Location Verified. Ready to launch post to the public marketplace feed!`);
+                },
+                (error) => {
+                    locationInput.placeholder = "Coordinates locked via active permissions";
+                    alert("Security Error: Active location telemetry handles tracking to block fraudulent listings.");
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+            );
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+/* CONTAINER & ROW ARCHITECTURE FOR STANDALONE VIEWS */
+.list-title { 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: #475569; 
+    margin-bottom: 12px; 
+    padding-left: 4px; 
+}
+.item-list-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+.list-row-item { 
+    background-color: white; 
+    border-radius: 12px; 
+    padding: 12px; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    border: 1px solid #eef2f6; 
+    position: relative; 
+}
+.item-avatar-drawn { 
+    width: 44px; 
+    height: 44px; 
+    background-color: #cbd5e1; 
+    border-radius: 50%; 
+    flex-shrink: 0; 
+    border: 1px solid #94a3b8; 
+}
+.item-info-meta { 
+    flex: 1; 
+    min-width: 0; 
+}
+.item-main-name { 
+    font-size: 15px; 
+    font-weight: 700; 
+    color: #1e293b; 
+    margin-bottom: 2px; 
+}
+.item-sub-text { 
+    font-size: 12px; 
+    color: #64748b; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+.font-bold { 
+    font-weight: 600; 
+    color: #000000 !important; 
+}
+
+/* STATE FLAG CHANNELS LOOKS */
+.unread-thread { 
+    background-color: #f8fafc; 
+    border-left: 4px solid #000000; 
+}
+.unread-notification { 
+    border-left: 4px solid #ff9f43; 
+    padding: 14px; 
+}
+.unread-count-indicator { 
+    background-color: #000000; 
+    color: white; 
+    font-size: 11px; 
+    font-weight: 800; 
+    padding: 2px 7px; 
+    border-radius: 20px; 
+}
+.btn-list-action { 
+    background-color: #000000; 
+    color: white; 
+    border: none; 
+    padding: 6px 14px; 
+    font-size: 12px; 
+    font-weight: bold; 
+    border-radius: 6px; 
+    cursor: pointer; 
+}
+

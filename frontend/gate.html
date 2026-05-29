@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Mkt - Security Gate</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        .gate-wrapper {
+            background-color: #000000;
+            position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 30px; color: white; z-index: 5000;
+        }
+        .gate-logo { font-size: 36px; font-weight: 900; letter-spacing: -1px; margin-bottom: 5px; }
+        .gate-tagline { color: #a1a1aa; font-size: 14px; margin-bottom: 40px; }
+        .gate-box { background-color: #18181b; padding: 20px; border-radius: 12px; border: 1px solid #27272a; }
+        .gate-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; }
+        .btn-gate-action {
+            background-color: #ffffff; color: #000000; width: 100%; padding: 14px;
+            border: none; border-radius: 8px; font-size: 15px; font-weight: bold;
+            cursor: pointer; margin-top: 15px;
+        }
+        .gps-status-box {
+            font-size: 12px; padding: 10px; border-radius: 6px; margin-top: 15px;
+            text-align: center; font-weight: 600; background-color: #27272a; color: #a1a1aa;
+        }
+        .gps-verified { background-color: #065f46; color: #34d399; }
+    </style>
+</head>
+<body style="padding: 0;">
+
+    <div class="gate-wrapper">
+        <div class="gate-logo">Rock Mkt</div>
+        <div class="gate-tagline">Strictly Business • No Dancing</div>
+
+        <div class="gate-box">
+            <div class="gate-title">Verify Phone Number</div>
+            <div class="form-group">
+                <label style="color: #a1a1aa;">Mobile Number</label>
+                <input type="tel" id="gatePhone" placeholder="e.g. +234..." style="background-color: #09090b; border: 1px solid #27272a; color: white;">
+            </div>
+
+            <div class="gps-status-box" id="gpsStatusField">GPS Hardware Authorization Required</div>
+            
+            <button class="btn-gate-action" onclick="verifyGateSecurity()">Verify & Enter Market</button>
+        </div>
+    </div>
+
+    <script>
+        let locationLocked = false;
+        let latVal = 0; let lngVal = 0;
+
+        function verifyGateSecurity() {
+            const phone = document.getElementById('gatePhone').value;
+            const statusBox = document.getElementById('gpsStatusField');
+
+            if (!phone) {
+                alert("Security Block: Please input a valid mobile number.");
+                return;
+            }
+
+            if (!navigator.geolocation) {
+                alert("Hardware Block: Device lacks GPS receiver routing modules.");
+                return;
+            }
+
+            statusBox.innerText = "Verifying physical coordinates...";
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    latVal = position.coords.latitude;
+                    lngVal = position.coords.longitude;
+                    locationLocked = true;
+                    
+                    statusBox.innerText = "Device Location Verified Secure";
+                    statusBox.classList.add('gps-verified');
+                    
+                    // --- THE RUST WIRE CONNECTION HOOK ---
+                    // This packs up your account data and shoots it directly into your Rust API port 5000!
+                    fetch('http://127.0.0', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            mobile_phone_key: phone,
+                            store_display_name: "New Unverified Seller",
+                            account_username: "user_" + phone.substring(phone.length - 4),
+                            location_city_label: "Lagos Anchor Room",
+                            facebook_link_url: null,
+                            instagram_link_url: null,
+                            milestones: {
+                                current_completed_deals: 0,
+                                permanent_public_reviews: 0,
+                                total_joined_members: 0,
+                                badge_unlocked_and_paid: false
+                            }
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(rustMessage => {
+                        console.log("Rust Response Received:", rustMessage);
+                        alert("Backend Response: " + rustMessage);
+                        location.href = "index.html"; // Move safely into the marketplace
+                    })
+                    .catch(err => {
+                        console.error("Connection Failed:", err);
+                        alert("Error: Frontend could not reach the Rust engine power station on port 5000!");
+                    });
+                },
+                (error) => {
+                    statusBox.innerText = "GPS Authorization Denied";
+                    alert("Security Refusal: Rock Mkt permanently blocks users who hide or spoof their live GPS location.");
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+            );
+        }
+    </script>
+</body>
+</html>
+
